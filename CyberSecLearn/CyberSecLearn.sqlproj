@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>CyberSecLearn</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{9297a96c-c74a-48d4-882c-1597e254bec6}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>CyberSecLearn</RootNamespace>
+    <AssemblyName>CyberSecLearn</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="tables" />
+    <Folder Include="storedprocedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="tables\UserModuleProgress.sql" />
+    <Build Include="tables\ModuleQuizOptions.sql" />
+    <Build Include="tables\Modules.sql" />
+    <Build Include="tables\ModuleSteps.sql" />
+    <Build Include="tables\Users.sql" />
+    <Build Include="tables\Quizzes.sql" />
+    <Build Include="tables\UserQuizScores.sql" />
+    <Build Include="storedprocedures\API_GetUserByEmail.sql" />
+    <Build Include="storedprocedures\API_AddUser.sql" />
+    <Build Include="storedprocedures\API_GetUserProgress.sql" />
+    <Build Include="storedprocedures\API_UpdateUserProgress.sql" />
+    <Build Include="storedprocedures\API_GetAllQuizzes.sql" />
+    <Build Include="storedprocedures\API_GetModules.sql" />
+    <Build Include="storedprocedures\API_GetModuleDetails.sql" />
+    <Build Include="tables\Questions.sql" />
+    <Build Include="tables\Options.sql" />
+    <Build Include="storedprocedures\API_GetQuizDetails.sql" />
+    <Build Include="storedprocedures\API_GetUserBestScore.sql" />
+    <Build Include="storedprocedures\API_UpdateUserScore.sql" />
+    <Build Include="tables\Feedback.sql" />
+    <Build Include="storedprocedures\API_AddFeedback.sql" />
+    <Build Include="tables\RoleType.sql" />
+    <Build Include="tables\Organization.sql" />
+    <Build Include="tables\UserOrganization.sql" />
+    <Build Include="storedprocedures\API_GetUserWithOrganizations.sql" />
+    <Build Include="storedprocedures\API_GetUserById.sql" />
+    <Build Include="storedprocedures\API_UpdateUserProfile.sql" />
+    <Build Include="storedprocedures\API_UpdateUserImageUrl.sql" />
+    <Build Include="storedprocedures\API_RemoveUserImageUrl.sql" />
+    <Build Include="storedprocedures\API_GetUserProfile.sql" />
+    <Build Include="tables\UserAchievements.sql" />
+    <Build Include="tables\Achievements.sql" />
+    <Build Include="storedprocedures\API_GetUserAchievementCodes.sql" />
+    <Build Include="storedprocedures\API_GrantAchievement.sql" />
+    <Build Include="storedprocedures\API_HasPerfectScore.sql" />
+    <Build Include="storedprocedures\API_GetAllUserProgress.sql" />
+    <Build Include="storedprocedures\API_GetOrganizationUserProgress.sql" />
+  </ItemGroup>
+</Project>
